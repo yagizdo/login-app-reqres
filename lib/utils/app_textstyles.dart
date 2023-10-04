@@ -1,8 +1,6 @@
 import 'package:login_app_riverpod/utils/extensions/context_extension.dart';
 import 'package:flutter/material.dart';
 
-import 'app_colors.dart';
-
 class AppTextStyle {
   AppTextStyle._();
 
