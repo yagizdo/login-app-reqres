@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:login_app_riverpod/utils/app_constants.dart';
 import 'package:login_app_riverpod/utils/app_textstyles.dart';
+import 'package:login_app_riverpod/views/auth/controller/auth_controller.dart';
 import 'package:login_app_riverpod/views/auth/widgets/auth_textfield.dart';
 import 'package:login_app_riverpod/widgets/main_widgets/tap_wrapper.dart';
+import 'package:provider/provider.dart';
 
 import '../../../utils/app_colors.dart';
 
@@ -17,11 +19,15 @@ class _LoginViewState extends State<LoginView> {
   late final TextEditingController _emailController;
   late final TextEditingController _passwordController;
 
+  late final AuthController _authController;
+
   @override
   void initState() {
     super.initState();
     _emailController = TextEditingController();
     _passwordController = TextEditingController();
+
+    _authController = context.read<AuthController>();
   }
 
   @override
@@ -55,7 +61,10 @@ class _LoginViewState extends State<LoginView> {
 
   Widget _loginButton() {
     return TapWrapper(
-        onTap: () {},
+        onTap: () {
+          _authController.userLogin(
+              email: _emailController.text, password: _passwordController.text);
+        },
         child: Container(
           decoration: BoxDecoration(
             color: AppColors.blue,

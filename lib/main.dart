@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:login_app_riverpod/utils/app_settings_provider.dart';
+import 'package:login_app_riverpod/views/auth/controller/auth_controller.dart';
 import 'package:login_app_riverpod/views/home/controller/home_controller.dart';
 import 'package:provider/provider.dart';
 
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => NetworkProvider()),
         ChangeNotifierProvider(create: (context) => AppSettingsProvider()),
         ChangeNotifierProvider(create: (context) => HomeController()),
+        ChangeNotifierProvider(create: (context) => AuthController()),
       ],
       child: Builder(
         builder: (context) {
