@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 
 import '../services/auth/auth_service.dart';
+import '../services/core/cache_manager.dart';
 import '../services/core/navigation_service.dart';
 import '../services/core/network/network_manager.dart';
 import '../services/user/user_service.dart';
@@ -20,4 +21,7 @@ void setup() {
 
   // User Service
   getIt.registerLazySingleton(() => UserService());
+
+  // Cache Manager
+  getIt.registerLazySingleton(() => CacheManager());
 }
