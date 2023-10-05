@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:login_app_riverpod/models/user/user.dart';
+import 'package:login_app_riverpod/models/user/user_model.dart';
 import 'package:login_app_riverpod/services/core/api_client.dart';
 import 'package:login_app_riverpod/services/user/i_user_service.dart';
 
@@ -9,10 +10,11 @@ class UserService extends ApiClient implements IUserService {
     List<User>? users;
     try {
       final Response response = await dio.get('/users');
-
       if (response.statusCode == 200) {
         if (response.data != null) {
-          users = (response.data as List).map((e) => User.fromJson(e)).toList();
+          UsersModel userModel = UsersModel.fromJson(response.data);
+
+          users = userModel.data;
           return users;
         }
       }

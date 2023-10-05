@@ -1,5 +1,5 @@
 import 'package:login_app_riverpod/utils/app_locator.dart';
-import 'package:login_app_riverpod/views/home_view.dart';
+import 'package:login_app_riverpod/views/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app_riverpod/views/home/controller/home_controller.dart';
 import 'package:provider/provider.dart';
 
 import 'services/core/network/network_provider.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => NetworkProvider()),
+        ChangeNotifierProvider(create: (context) => HomeController()),
       ],
       child: Builder(
         builder: (context) {
