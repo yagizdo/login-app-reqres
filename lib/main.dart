@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:login_app_riverpod/services/core/cache_manager.dart';
 import 'package:login_app_riverpod/utils/app_settings_provider.dart';
 import 'package:login_app_riverpod/views/auth/controller/auth_controller.dart';
 import 'package:login_app_riverpod/views/home/controller/home_controller.dart';
@@ -10,9 +11,11 @@ import 'utils/app_routes.dart';
 import 'views/network_error_view.dart';
 
 final RouterConfig<Object>? _router = AppRoutes.shared.appRouterConfig();
+final CacheManager _cacheManager = getIt<CacheManager>();
 
 Future<void> init() async {
   setup();
+  await _cacheManager.init();
 }
 
 Future<void> main() async {
