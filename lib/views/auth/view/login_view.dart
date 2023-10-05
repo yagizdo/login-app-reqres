@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:login_app_riverpod/utils/app_assets.dart';
 import 'package:login_app_riverpod/utils/app_constants.dart';
+import 'package:login_app_riverpod/utils/app_routes.dart';
 import 'package:login_app_riverpod/utils/app_textstyles.dart';
 import 'package:login_app_riverpod/utils/extensions/context_extension.dart';
 import 'package:login_app_riverpod/views/auth/controller/auth_controller.dart';
@@ -67,7 +69,9 @@ class _LoginViewState extends State<LoginView> {
     return TapWrapper(
         onTap: () {
           _authController.userLogin(
-              email: _emailController.text, password: _passwordController.text);
+              email: _emailController.text, password: _passwordController.text, onSuccess: (){
+                context.go(AppRoutes.home);
+          });
         },
         child: Container(
           height: context.screenWidth * 0.12,
