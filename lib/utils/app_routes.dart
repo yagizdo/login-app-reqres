@@ -1,4 +1,5 @@
 import 'package:login_app_riverpod/utils/app_locator.dart';
+import 'package:login_app_riverpod/views/auth/view/login_view.dart';
 import 'package:login_app_riverpod/views/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -16,11 +17,16 @@ class AppRoutes {
 
   static const splash = '/';
   static const home = '/home';
+  static const login = '/login';
 
   List<RouteBase> appRoutes = [
     GoRoute(
       path: splash,
       builder: (context, state) => const HomeView(),
+    ),
+    GoRoute(
+      path: login,
+      builder: (context, state) => const LoginView(),
     ),
   ];
 

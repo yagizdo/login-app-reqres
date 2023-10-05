@@ -1,8 +1,5 @@
-import 'package:login_app_riverpod/models/user/user.dart';
-import 'package:login_app_riverpod/utils/app_colors.dart';
 import 'package:login_app_riverpod/utils/app_constants.dart';
 import 'package:login_app_riverpod/utils/app_textstyles.dart';
-import 'package:login_app_riverpod/utils/extensions/context_extension.dart';
 import 'package:login_app_riverpod/views/home/controller/home_controller.dart';
 import 'package:login_app_riverpod/views/home/widgets/users_list.dart';
 import 'package:login_app_riverpod/widgets/main_widgets/main_layout.dart';

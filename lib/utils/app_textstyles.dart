@@ -55,4 +55,13 @@ class AppTextStyle {
     );
   }
 
+  // Auth
+  static TextStyle authTextFieldHint(BuildContext context) {
+    return TextStyle(
+      color: AppColors.greyTxt,
+      fontSize: context.screenWidth * 0.04,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
 }
