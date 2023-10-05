@@ -5,11 +5,22 @@ import 'package:flutter/material.dart';
 class AppTextStyle {
   AppTextStyle._();
 
-  // Home View
-  static TextStyle homeText() {
-    return const TextStyle(
+  // Splash Text
+  static TextStyle splashText(BuildContext context) {
+    return TextStyle(
       color: AppColors.blackBackground,
-      fontSize: 22,
+      fontSize: context.screenWidth * 0.075,
+      fontWeight: FontWeight.w700,
+      letterSpacing: -0.2,
+      overflow: TextOverflow.ellipsis,
+    );
+  }
+
+  // Home View
+  static TextStyle homeText(BuildContext context) {
+    return TextStyle(
+      color: AppColors.blackBackground,
+      fontSize: context.screenWidth * 0.06,
       fontWeight: FontWeight.w700,
       letterSpacing: -0.2,
       overflow: TextOverflow.ellipsis,
@@ -59,6 +70,13 @@ class AppTextStyle {
   static TextStyle authTextFieldHint(BuildContext context) {
     return TextStyle(
       color: AppColors.greyTxt,
+      fontSize: context.screenWidth * 0.04,
+      fontWeight: FontWeight.w400,
+    );
+  }
+  static TextStyle authLoginBtnTxt(BuildContext context) {
+    return TextStyle(
+      color: AppColors.white,
       fontSize: context.screenWidth * 0.04,
       fontWeight: FontWeight.w400,
     );

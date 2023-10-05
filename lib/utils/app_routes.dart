@@ -3,6 +3,7 @@ import 'package:login_app_riverpod/views/auth/view/login_view.dart';
 import 'package:login_app_riverpod/views/home/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:login_app_riverpod/views/splash_view.dart';
 
 import '../services/core/navigation_service.dart';
 import '../views/error_view.dart';
@@ -22,6 +23,10 @@ class AppRoutes {
   List<RouteBase> appRoutes = [
     GoRoute(
       path: splash,
+      builder: (context, state) => const SplashView(),
+    ),
+    GoRoute(
+      path: home,
       builder: (context, state) => const HomeView(),
     ),
     GoRoute(

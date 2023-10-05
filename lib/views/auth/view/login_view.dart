@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:login_app_riverpod/utils/app_assets.dart';
 import 'package:login_app_riverpod/utils/app_constants.dart';
 import 'package:login_app_riverpod/utils/app_textstyles.dart';
+import 'package:login_app_riverpod/utils/extensions/context_extension.dart';
 import 'package:login_app_riverpod/views/auth/controller/auth_controller.dart';
 import 'package:login_app_riverpod/views/auth/widgets/auth_textfield.dart';
+import 'package:login_app_riverpod/widgets/main_widgets/main_layout.dart';
 import 'package:login_app_riverpod/widgets/main_widgets/tap_wrapper.dart';
 import 'package:provider/provider.dart';
 
@@ -39,21 +42,22 @@ class _LoginViewState extends State<LoginView> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildBody();
+    return MainLayout(content: _buildBody());
   }
 
   Widget _buildBody() {
     return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           "Login",
-          style: AppTextStyle.homeText(),
+          style: AppTextStyle.homeText(context),
         ),
         height10Per(context: context),
         AuthTextField(hint: "Email", controller: _emailController),
         height5Per(context: context),
-        AuthTextField(hint: "Password", controller: _passwordController),
-        height5Per(context: context),
+        AuthTextField(hint: "Password", controller: _passwordController, obscureText: true, suffixIcon: AppAssets.eyeCloseIcon,),
+        height15Per(context: context),
         _loginButton(),
       ],
     );
@@ -66,10 +70,18 @@ class _LoginViewState extends State<LoginView> {
               email: _emailController.text, password: _passwordController.text);
         },
         child: Container(
+          height: context.screenWidth * 0.12,
+          width: context.screenWidth * 0.8,
           decoration: BoxDecoration(
             color: AppColors.blue,
             borderRadius: BorderRadius.circular(10),
           ),
+          child: Center(
+            child: Text(
+              "Login",
+              style: AppTextStyle.authLoginBtnTxt(context),
+            ),
+          )
         ));
   }
 }

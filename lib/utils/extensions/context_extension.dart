@@ -28,7 +28,7 @@ extension ContextExtension on BuildContext {
       MediaQueryData.fromView(PlatformDispatcher.instance.views.first)
           .size
           .shortestSide <
-      330;
+      390;
 
   bool get isAndroidPhone => Platform.isAndroid;
 

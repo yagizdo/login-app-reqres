@@ -31,7 +31,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
   Widget build(BuildContext context) {
     final appSettingsProvider = context.read<AppSettingsProvider>();
     return Padding(
-      padding: EdgeInsets.only(right: context.screenWidth * 0.05),
+      padding: EdgeInsets.only(right: context.screenWidth * 0.04, left: context.screenWidth * 0.04),
       child: TextField(
         controller: widget.controller,
         obscureText: widget.obscureText ? !_showPassword : false,
@@ -54,8 +54,8 @@ class _AuthTextFieldState extends State<AuthTextField> {
             padding: EdgeInsets.only(right: context.screenWidth * 0.05),
             child: !widget.obscureText ? SvgPicture.asset(
               widget.suffixIcon!,
-              width: context.screenWidth * 0.03,
-              height: context.screenWidth * 0.03,
+              width: context.isLittlePhone ? context.screenWidth * 0.02 : context.screenWidth * 0.03,
+              height: context.isLittlePhone ? context.screenWidth * 0.02 : context.screenWidth * 0.03,
             ) : TapWrapper(
               onTap: () {
                 setState(() {
@@ -64,13 +64,13 @@ class _AuthTextFieldState extends State<AuthTextField> {
               },
               child: SvgPicture.asset(
                 _showPassword ? AppAssets.eyeOpenIcon : AppAssets.eyeCloseIcon,
-                width: context.screenWidth * 0.03,
-                height: context.screenWidth * 0.03,
+                width: context.isLittlePhone ? context.screenWidth * 0.02 : context.screenWidth * 0.03,
+                height:  context.isLittlePhone ? context.screenWidth * 0.02 : context.screenWidth * 0.03,
               ),
             ),
           )
               : null,
-          fillColor: Colors.grey,
+          fillColor: Colors.grey.withOpacity(0.2),
           hintStyle: AppTextStyle.authTextFieldHint(context),
           contentPadding: EdgeInsets.symmetric(
               horizontal: context.screenWidth * 0.05,

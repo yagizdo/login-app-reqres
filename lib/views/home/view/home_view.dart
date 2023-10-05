@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
     return Column(
       children: [
         height5Per(context: context),
-        Text("Users", style: AppTextStyle.homeText(),),
+        Text("Users", style: AppTextStyle.homeText(context),),
         height5Per(context: context),
         const Expanded(child: UsersList()),
       ],
